@@ -1,0 +1,57 @@
+This is a simple program that can separate points on a two-dimensional plane
+using a number of axis-parallel lines that's usually less than the maximum
+(n-1, for n points), and usually equal to the minimum. A greedy algorithm is
+used that assumes that no two points share the same x coordinate, and that no
+two points share the same y coordinate. Also all x and y coordinates must be
+restricted to the first quadrant, which is to say that they must be positive
+values. In addition, the coordinates must be whole numbers.
+
+Useful for computing a non-worst-case solution, quickly.
+
+The code was made in a rush, and isn't exactly a gem of clarity and perfection,
+but it does run correctly. As always, improvements are welcome.
+
+The program, entirely in `sep.c`, takes a series of input files whose names are
+formated "instanceNN", where NN is 00 to 99. All the solutions are written out
+to a file whose name is formated "greedy_solutionNN", where NN corresponds to
+the number of the instance.
+
+For example instance12 yields an output file called greedy_solution12.
+
+The format of the data in the instance files is as follows:
+
+	NUMBER_OF_POINTS
+	X0 Y0
+	X1 Y1
+	X3 Y2
+
+Here's an actual example.
+
+	5
+	1 10
+	2 6
+	3 8
+	4 1
+	5 3
+
+The format of the data in the solution files is as follows
+
+	NUMBER_OF_LINES
+	ORIENTATION_OF_LINE0 AXIS_INTERSECT0
+	ORIENTATION_OF_LINE1 AXIS_INTERSECT1
+	ORIENTATION_OF_LINE2 AXIS_INTERSECT2
+
+Here's an actual example of a solution file (to the previous instance example).
+
+	4
+	v 3.500000
+	h 7.000000
+	v 2.500000
+	v 4.500000
+
+
+There are four lines, the first is parallel to the y-axis (is vertical) and
+intersects the x-axis at x=3.5
+
+So far, this code has only been tested on Illumos on X86. But should run in any
+environment that has a C compiler.
